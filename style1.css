@@ -1,0 +1,186 @@
+* {box-sizing: border-box;}
+body {font-family: Arial, sans-serif;
+	font-size:14pt;}
+/*phần Header*/
+.header {display:flex;
+		align-items: center;
+		background-color:blue;
+		height:160px;}
+		
+.header img {float: left;
+			width:100px;
+			margin-left:60px;}
+				
+.header h1 {color: white;
+			width:100%;
+			text-align:center;
+			font-size:35pt;
+			text-shadow: 4px 4px 8px #000000;}
+/*phần menu nav*/
+.nav {overflow: hidden;
+     background-color: #db2458;
+     height: 45px;}
+.nav ul {list-style-type: none;
+         margin:0px;
+         padding:0px;
+		 display: flex;}
+.nav a {float: left;
+         display: block;
+		 color: white;
+		 text-align: centerr;
+		 padding: 14px 10px;
+         text-decoration: none;}
+.nav a:hover {background-color:white;
+         color:#db2458;}
+/*phần footer*/
+.footer {background-color:blue;
+         padding: 10px 0;
+		 width:100%;
+		 display: flex;
+		 justify-content: space-around;
+         align-items:center;}
+.footer p {margin-left: 100px;
+            color:white;}
+.footer img {width:90px;}
+  
+/*Phần Nội dung chính/Content*/
+.content {display: flex; 
+	flex-grow: 1;
+	justify-content: space-around;
+	padding: 10px;}
+/*Phần Cột 1*/
+.col1 {width:25%;background-color:#f1f1f1;
+     flex-direction: column;
+	 display: flex;
+	 align-items: center;}
+.gallery { 
+    margin: 5px;
+	border: 1px solid #ccc;
+	float: left;
+width: 180px;}
+.gallery:hover { border: 1px solid #777}
+.gallery img { width: 100%;
+height:auto;}
+.desc { padding: 15px;
+text-align: center;}
+
+
+
+/*Phần Cột 2*/
+.col2 {width:50%; padding:16px;}
+.col2 img {float:right;width:350px;
+			padding-left: 16px;}
+.col2 h3 {text-align:center; 
+			color:tomato;}
+.col2 p {text-align:justify;
+			font-size:14pt; 
+			line-height:1.5;}
+.dropcap {float:left;
+			font-size: 60pt;
+			color: green;
+			line-height: 40px;}
+
+
+/*Phần Cột 3*/
+.col3 {width:25%;
+	   background-color:#f1f1f1;
+	   display: flex;
+	   flex-direction: column;
+	   align-items: center;}
+	   
+/*Phần Footer*/
+.footer {background-color:blue;
+		 padding: 10px 0px;
+		 width: 100%;
+		 display: flex;
+		 justify-content: space-around;
+		 align-items: center;}
+.footer p {margin-left: 100px;
+		font-size: 10pt;
+		color:white;}
+.footer img {width:90px;}
+
+
+/* --- PHẦN CSS BỔ SUNG ĐỂ TƯƠNG THÍCH MÀN HÌNH (RESPONSIVE) --- */
+
+/* 1. Thiết lập cho máy tính bảng (Tablet - màn hình dưới 992px) */
+@media screen and (max-width: 992px) {
+
+    .content {
+        flex-wrap: wrap; /* Cho phép các cột rớt dòng */
+    }
+
+    .col1,
+    .col3 {
+        width: 50%; /* Cột 1 và cột 3 chia đôi hàng */
+    }
+
+    .col2 {
+        width: 100%; /* Cột nội dung chính chiếm trọn 1 hàng */
+        order: -1;   /* Đưa nội dung chính lên đầu */
+    }
+
+    .header h1 {
+        font-size: 25pt; /* Thu nhỏ chữ tiêu đề */
+    }
+}
+
+/* 2. Thiết lập cho điện thoại (Mobile - màn hình dưới 576px) */
+@media screen and (max-width: 576px) {
+
+    .content {
+        flex-direction: column; /* Xếp dọc các cột */
+    }
+
+    .col1,
+    .col2,
+    .col3 {
+        width: 100%; /* Mỗi cột chiếm 1 hàng */
+        order: 0;    /* Trở về thứ tự mặc định */
+    }
+
+    .header h1 {
+        font-size: 20pt; /* Nhỏ hơn cho mobile */
+        text-align: center;
+    }
+}
+/* 2. Thiết lập cho điện thoại (Mobile - màn hình dưới 600px) */
+@media screen and (max-width: 600px) {
+    .header {
+        flex-direction: column; /* Chuyển logo và chữ thành hàng dọc */
+        height: auto;
+        padding: 20px 0;}
+    .header img {
+        margin-left: 0;
+        margin-bottom: 10px;}
+    .header h1 {
+        font-size: 18pt;}
+    .nav ul {
+        flex-direction: column; /* Menu dàn hàng dọc */
+        text-align: center;}
+    .nav {
+        height: auto;}
+    .nav a {
+        float: none;
+        width: 100%;
+        border-bottom: 1px solid green;}
+    .col1, .col2, .col3 {
+        width: 100%; /* Tất cả các cột chiếm 100% chiều rộng */
+    }  
+    .col2 img {
+        float: none; /* Ảnh trong bài viết không nổi (float) nữa mà nằm giữa */
+        width: 100%;
+        padding-left: 0;
+        margin-bottom: 15px;    }
+    .footer {
+        flex-direction: column;
+        text-align: center;    }
+    .footer p {
+        margin-left: 0;
+        margin-bottom: 15px;    }
+    
+    /* Điều chỉnh video Youtube để không bị tràn màn hình */
+    iframe {
+        width: 100% !important;
+        height: auto;}
+}
